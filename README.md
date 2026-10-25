@@ -14,7 +14,7 @@ ML engineer (M.S. ECE, USC, Dec 2026, available Jan 2027) working where models m
 
 ## On-device and efficient inference
 
-**[visionflow](https://github.com/vineetha00/visionflow)**: a quantized vision-language pipeline with hardware-aware backends (CUDA INT4/INT8, Apple MPS, CPU GGUF). Grammar-constrained decoding raised valid structured output from 2% to 79% on 150 DocVQA documents; INT4 runs at 47.7 tok/s in 1.85 GB of VRAM on an L40S. `pip install visionflow-edge` · [eval dataset](https://huggingface.co/datasets/Vineetha00/visionflow)
+**[visionflow](https://github.com/vineetha00/visionflow)**: a quantized vision-language pipeline with hardware-aware backends (CUDA INT4/INT8, Apple MPS, CPU GGUF). Grammar-constrained decoding raised valid structured output from 2% to 79% on 150 DocVQA documents; INT4 runs at 47.7 tok/s in 1.85 GB of VRAM on an L40S, and the ONNX vision encoder runs at 11.90 ms p50 on TensorRT (109.8x over CPU, 1.62x over the CUDA EP), with a harness that caught two silent CPU fallbacks posing as TensorRT. `pip install visionflow-edge` · [eval dataset](https://huggingface.co/datasets/Vineetha00/visionflow)
 
 **[qualcomm-aihub](https://github.com/vineetha00/qualcomm-aihub)**: INT8 MobileNetV2 on a Galaxy S24 Hexagon NPU, 0.37 to 0.28 ms with 105/105 layers NPU-resident, at a 0.18 pt top-1 cost measured only after verifying FP32 parity with PyTorch. Qwen3-0.6B W4A16 through QNN is in progress.
 
