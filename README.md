@@ -18,6 +18,8 @@ ML engineer (M.S. ECE, USC, Dec 2026, available Jan 2027) working where models m
 
 **[qualcomm-aihub](https://github.com/vineetha00/qualcomm-aihub)**: models taken from PyTorch to the Hexagon NPU through Qualcomm AI Hub. Qwen3-0.6B W4A16 compiled into QNN context binaries for a Snapdragon 8 Elite: 97 tok/s decode at 1K context, 40 tok/s at 4K, 29 ms to first token, 100% of ops on the NPU. INT8 MobileNetV2 on a Galaxy S24: 0.37 to 0.28 ms with 105/105 layers NPU-resident, at a 0.18 pt top-1 cost measured only after verifying FP32 parity with PyTorch.
 
+**[edge-deploy-agent](https://github.com/vineetha00/edge-deploy-agent)**: a Nemotron agent (LangGraph) that tunes a speech model on a real Raspberry Pi 4 within latency, memory and WER budgets. It picked dynamic INT8 wav2vec2 at 1932 ms p95, 26% faster with 39% less RAM than FP32 for +0.23 pt WER, served on Triton in Kubernetes via Terraform. Layered prompt-injection defenses (NeMo Guardrails rails plus a deterministic allowlist): 0 of 60 attack attempts reached execution. Built for the Nebius x NVIDIA Global AI Hackathon · [demo video](https://youtu.be/2QCPIlOW3wk)
+
 **[SynapNet-Edge](https://github.com/vineetha00/SynapNet-Edge)**: a hybrid SSM + sparse-attention + episodic-memory model with component-aware quantization. Benchmarked on a real Raspberry Pi 4 (16.6 to 10.2 MB at INT8, within 2 points of FP16), with real INT8 ONNX kernels (1.54x faster single-thread on Apple M3) and a 3.3K-parameter KV-cache eviction policy on par with H2O, SnapKV and PyramidKV. ([architecture repo](https://github.com/vineetha00/SynapNet_Exp))
 
 ## Applied ML
@@ -27,4 +29,4 @@ ML engineer (M.S. ECE, USC, Dec 2026, available Jan 2027) working where models m
 
 ## Stack
 
-`Python` `C/C++` `CUDA` `PyTorch` `Hugging Face` `ONNX Runtime` `llama.cpp` `Qualcomm AI Hub` `Amazon Bedrock` `SageMaker` `FastAPI` `Docker` `Kubernetes` `MCP` `LangGraph`
+`Python` `C/C++` `CUDA` `PyTorch` `Hugging Face` `ONNX Runtime` `llama.cpp` `Qualcomm AI Hub` `Amazon Bedrock` `SageMaker` `FastAPI` `Docker` `Kubernetes` `Terraform` `Triton` `NeMo Guardrails` `MCP` `LangGraph`
